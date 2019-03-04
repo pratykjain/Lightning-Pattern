@@ -15,7 +15,8 @@ Using this Pattern in your component:
 
 In method:
 
-var paramsObj = {
+```
+var paramsObj = {'
     // "args1" :  "param1",
     // "args2" :  "param2",
     // ..
@@ -30,3 +31,5 @@ this.callApexFunction( component, "c.apexControllerMethodName", paramsObj )
 .catch( error => {
   // Failure actions
 });
+
+```
