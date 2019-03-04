@@ -10,7 +10,7 @@ Pattern consist methods for :
 Using this Pattern in your component:
 
 1. Added the Base Lightning component to your library.
-2. Extend you child component with Base component. Like this : <aura:component extends="c:Base" >
+2. Extend you child component with Base component. Like this : ``` <aura:component extends="c:Base" > ```
 3. Calling the Base method: 
 
 In method:
