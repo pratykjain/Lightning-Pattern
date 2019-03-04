@@ -14,18 +14,19 @@ Using this Pattern in your component:
 3. Calling the Base method: 
 
 In method:
-		var paramsObj = {
+
+var paramsObj = {
     // "args1" :  "param1",
     // "args2" :  "param2",
     // ..
     // "argsn" :  "param n",
     };
-	      // Calling Apex Class method using Base component Helper method
-		this.callApexFunction( component, "c.apexControllerMethodName", paramsObj )
-	      .then( result => {
-	           // Success actions
-	      })
-	      .catch( error => {
-	          // Failure actions
-	       });
-	}
+    
+// Calling Apex Class method using Base component Helper method
+this.callApexFunction( component, "c.apexControllerMethodName", paramsObj )
+.then( result => {
+   // Success actions
+})
+.catch( error => {
+  // Failure actions
+});
