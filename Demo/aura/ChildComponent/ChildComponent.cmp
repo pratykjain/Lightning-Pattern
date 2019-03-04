@@ -1,0 +1,6 @@
+<aura:component extends="c:Base" controller="ChildController" >
+
+    <!-- AURA HANDLERS -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+</aura:component>
