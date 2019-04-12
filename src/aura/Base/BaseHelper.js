@@ -78,6 +78,25 @@
     },
     
     /**
+     * @description This method delete record accessed via Lightnig Data Service
+     * @date        10-01-2018
+     * @author      makepositive ( Pratyk Jain )
+     */
+    deleteRecordLDS : function( component, auraId ){
+        var promise = new Promise( function( resolve, reject ) {
+            component.find( auraId ).deleteRecord( function( deleteRecord ) {
+                if ( deleteRecord.state === "SUCCESS" || deleteRecord.state === "DRAFT" ) {
+                    resolve( deleteRecord.state );
+                }
+                else {
+                    reject( deleteRecord.error );
+                }
+            });
+        });
+        return promise;
+    },
+    
+    /**
      * @description This method is used to show notification when we don't display toast on component screen.
      * @date        15-02-2018
      * @author      makepositive ( Pratyk Jain )
