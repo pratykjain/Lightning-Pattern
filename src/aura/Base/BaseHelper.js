@@ -76,5 +76,20 @@
         });
         return promise;
     },
+    
+    /**
+     * @description This method is used to show notification when we don't display toast on component screen.
+     * @date        15-02-2018
+     * @author      makepositive ( Pratyk Jain )
+     */
+    showNotice : function(component, type, header, message) {
+        // NOTE: Add <lightning:notificationsLibrary aura:id= "notifLib"/> on child component
+        component.find('notifLib').showNotice({
+            "variant": type,
+            "header": header,
+            "message": message,
+            "mode" : "dismissable"
+        });
+    },
 
 })
