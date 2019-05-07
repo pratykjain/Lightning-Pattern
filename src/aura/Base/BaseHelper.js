@@ -104,11 +104,51 @@
     showNotice : function(component, type, header, message) {
         // NOTE: Add <lightning:notificationsLibrary aura:id= "notifLib"/> on child component
         component.find('notifLib').showNotice({
-            "variant": type,
-            "header": header,
-            "message": message,
-            "mode" : "dismissable"
+            "variant" 	: type,
+            "header"  	: header,
+            "message" 	: message,
+            "mode" 		: "dismissable"
         });
+    },
+    
+    redirectToUrl : function( url ){
+        self.location = url;
+    },
+    
+    navigateToSobject : function( component, objectName, pageType, listViewName ){
+        var navService 	  = component.find("navService");
+        var pageReference = this.getPageReference( objectName, pageType, listViewName ); 
+        navService.navigate( pageReference ); 
+    },
+    
+    navigateToSobjects : function( component, objectName, pageType ){
+        this.navigateToSobject( component, objectName, pageType, '' );
+    },
+    
+    getPageReference : function( objectName, pageType, listViewName ){
+        let pageRef = {
+            type : 'standard__objectPage',
+            attributes : {
+                objectApiName 	: objectName,
+                actionName 		: pageType
+            }
+        };
+        
+        if( pageRef.actionName == 'list' ){
+            pageRef.state.filterName = listViewName;
+        }
+        
+        return pageRef;
+    },
+    
+    
+    dataTableFieldsGenerator : function( listOfQueryParam ){
+        let dataTableColumns = [];
+        for( var i = 0; i < listOfQueryParam.length; i++ ){
+            dataTableColumns = dataTableColumns.concat( { "label" : listOfQueryParam[i][0], "fieldName" : listOfQueryParam[i][1]
+                                                         , "type" : listOfQueryParam[i][2], "editable"  : listOfQueryParam[i][3] } );
+        }
+        return dataTableColumns; 
     },
 
 })
